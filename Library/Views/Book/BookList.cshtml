@@ -1,0 +1,37 @@
+﻿@model List<Book>
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h3 class="text-center">Kiatap Listeleme Sayfası</h3>
+<a asp-controller="Book" asp-action="Create" class="btn btn-primary" style="float:right;">Yeni Ekle</a>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>Name</th>
+            <th>PageCount</th>
+            <th>Author</th>
+            <th>BookType</th>
+            <th>Aksiyonlar</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        @for (int i = 0; i < Model.Count; i++)
+        {
+            <tr>
+                <th>@(i + 1)</th>
+                <td>@Model[i].Name</td>
+                <td>@Model[i].PageCount</td>
+                <td>@Model[i].Author.FirstName  @Model[i].Author.LastName </td>
+                <td>@Model[i].BookType.Name</td>
+
+                <td>
+                    <a class="big-icon" asp-controller="Book" asp-action="Edit" asp-route-id="@Model[i].ID"><i class="bi bi-pencil-square"></i></a>
+                    <a class="big-icon margin-icon" asp-controller="Book" asp-action="Delete"><i class="bi bi-x-circle"></i></a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

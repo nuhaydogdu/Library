@@ -1,0 +1,14 @@
+﻿@model BookType
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h3 class="text-center"> BookType için veri ekleme sayfası</h3>
+<form method="post" asp-controller="BookType" asp-action="Create">
+    <div class="mb-3"> 
+        <label class=" form-label" asp-for="Name"> İsim</label>
+        <input type="text" class="form-control" asp-for="Name" />
+    </div>
+    <button type="submit" class="btn btn-primary">Kaydet</button>
+
+</form>

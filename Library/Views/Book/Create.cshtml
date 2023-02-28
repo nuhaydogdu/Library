@@ -1,0 +1,31 @@
+﻿@*gönderilen tuple nesnemizi burada karşılıyoruz () ile gçnderdiklerimiz*@
+@using Library.Dto
+@model (Book book, List<AuthorDto> authors, List<BookTypeDto> bookTypes) 
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h3 class="text-center"> Yeni Kitap Ekleme Sayfası</h3>
+<form method="post" asp-controller="Book" asp-action="Create">
+    <div class="mb-3">
+        <label class=" form-label" asp-for="book.Name"> İsim</label>
+        <input type="text" class="form-control" asp-for="book.Name" />
+    </div>
+    <div class="mb-3">
+        <label class=" form-label" asp-for="book.PageCount">Sayfa Sayısı</label>
+        <input type="text" class="form-control" asp-for="book.PageCount" />
+    </div>
+    <div class="mb-3">
+        <label class=" form-label" asp-for="book.AutherID"> Yazar</label>
+        @*SelectList İÇERİSİNE ÜÇ TANE PAPAMETRE ALIYOR. birinci parametre model. ikincisi arka tarafa tutulacak değer id. üçüncü ekranda göterilecek olan FullName*@
+        <select class="form-control" asp-for="book.AutherID" asp-items="@(new SelectList(Model.authors,"ID","FullName"))"></select>
+    </div>
+    <div class="mb-3">
+        <label class=" form-label" asp-for="book.BookTypeID"> Kitap Türü</label>
+        <select class="form-control" asp-for="book.BookTypeID" asp-items="@(new SelectList(Model.bookTypes,"ID","Name"))"></select>
+    </div>
+
+    <div>
+        <button type="submit" class="btn btn-primary">Kaydet</button>
+    </div>
+
+</form>
