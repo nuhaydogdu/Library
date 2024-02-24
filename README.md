@@ -7,5 +7,9 @@ I made a small web application to learn and implement the .Net MVC structure.
 
 The user can add the authors and book types he wants. While creating a book on the book listing page, he continues by selecting the author and book genres he entered. Finally, all records are listed. Adding, updating and deleting operations can be performed for all records.
 
-Key achievements:
-.Net MVC, CRUD Operations, Entity Framework, Repository Pattern, Code Fisrt Approach
+## Key achievements:
+- .Net MVC
+- CRUD Operations
+- Entity Framework
+- Repository Pattern
+- Code Fisrt Approach
